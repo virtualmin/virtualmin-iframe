@@ -1,4 +1,8 @@
 # Defines functions for this feature
+use strict;
+use warnings;
+our (%text, %config);
+our $module_name;
 
 require 'virtualmin-iframe-lib.pl';
 
@@ -27,7 +31,7 @@ sub theme_sections
 if (!$config{'url'}) {
 	return ( );
 	}
-local $html = "<iframe src='$config{'url'}' width=$config{'width'} height=$config{'height'}></iframe>";
+my $html = "<iframe src='$config{'url'}' width=$config{'width'} height=$config{'height'}></iframe>";
 return ( { 'name' => $module_name,
 	   'title' => $config{'title'},
 	   'html' => $html,
@@ -36,4 +40,3 @@ return ( { 'name' => $module_name,
 }
 
 1;
-
